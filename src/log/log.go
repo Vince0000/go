@@ -186,7 +186,7 @@ func (l *Logger) Print(v ...interface{}) { l.Output(2, fmt.Sprint(v...)) }
 
 // Println calls l.Output to print to the logger.
 // Arguments are handled in the manner of fmt.Println.
-func (l *Logger) Println(v ...interface{}) { l.Output(2, fmt.Sprintln(v...)) }
+func (l *Logger) Println(v ...interface{}) { l.Output(l.calldepth, fmt.Sprintln(v...)) }
 
 // Fatal is equivalent to l.Print() followed by a call to os.Exit(1).
 func (l *Logger) Fatal(v ...interface{}) {
